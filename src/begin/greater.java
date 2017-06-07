@@ -27,7 +27,6 @@ public class greater {
 				new GenericXmlApplicationContext("begin/app_context.xml");
 		greater g = ctx.getBean("greater",greater.class);
 		
-		
 		String temp = g.greet("Spring");
 		System.out.println(temp);
 		ctx.close();
