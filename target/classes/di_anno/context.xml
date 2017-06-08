@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans 
+xmlns="http://www.springframework.org/schema/beans"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   
+   xmlns:context="http://www.springframework.org/schema/context"
+   
+   xsi:schemaLocation="http://www.springframework.org/schema/beans
+      http://www.springframework.org/schema/beans/spring-beans.xsd
+      
+      http://www.springframework.org/schema/context
+      http://www.springframework.org/schema/context/spring-context.xsd">
+      
+   <context:annotation-config/>
+   
+   
+   <bean id='db' class='di_anno.DBConnect' />
+
+
+   <bean id='dao' class='di_anno.BoardDao'>
+      <!-- <constructor-arg ref="db"/>생성자의 매개변수가 db다. -->
+
+
+   </bean>
+
+</beans>
+
+<!-- 6번, 11,12 추가하고 14번 쓰기 -->

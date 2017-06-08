@@ -1,4 +1,4 @@
-package bean;
+package di_anno;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -12,8 +12,7 @@ public class BoardDao {
 	BoardVo dVo = null;
 	public BoardDao() {
 	}
-	
-	
+	@Autowired
 	public BoardDao(DBConnect dbc) {
 		conn = dbc.getConn();
 	}
