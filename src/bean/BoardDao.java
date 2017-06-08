@@ -35,7 +35,7 @@ public class BoardDao {
 				nVo.setContent(rs.getString("content"));
 				nVo.setHit(rs.getInt("hit"));
 			}
-			
+			conn.close();
 		} catch (Exception e) {
 		}finally {
 			dVo = nVo;
