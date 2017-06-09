@@ -15,5 +15,5 @@ public class ExeTimeCalculator implements Calculator {
 				delegate.getClass().getSimpleName(),
 				num,(end-start));
 		return result; 
-	}
+	} 
 }
