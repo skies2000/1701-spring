@@ -15,6 +15,6 @@ public class ExeTimeCalculator implements Calculator {
 		System.out.printf("%s.factorial(%d)실행시간 = %d\n",
 				delegate.getClass().getSimpleName(),
 				num,(end-start));
-		return result;
+		return result; 
 	}
 }
