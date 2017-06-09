@@ -3,7 +3,6 @@ package aop_begin;
 public class ExeTimeCalculator implements Calculator {
 
 	private Calculator delegate;
-	
 	public ExeTimeCalculator (Calculator delegate){
 		this.delegate = delegate;
 	}
