@@ -1,15 +1,18 @@
-package aop_log;
+package aop_ano;
 
-public class Logout implements Log{
+import org.aspectj.lang.annotation.Pointcut;
+
+public class Search implements Log{
 
 	@Override
 	public String log(String name) {
 		return name;
 	}
-
+	
+	
 	@Override
 	public void log() {
-		System.out.println("로그아웃 되었습니다.");
+		System.out.println("DB접근");
 		
 	}
 
@@ -18,6 +21,5 @@ public class Logout implements Log{
 		// TODO Auto-generated method stub
 		
 	}
-	
 
 }

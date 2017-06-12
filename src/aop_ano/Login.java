@@ -1,4 +1,6 @@
-package aop_log;
+package aop_ano;
+
+import org.aspectj.lang.annotation.Pointcut;
 
 public class Login implements Log{
 	
@@ -9,6 +11,7 @@ public class Login implements Log{
 	public Login(String name) {
 		this.name = name;
 	}
+	
 	@Override
 	public String log(String name) {
 		String str =name+"님이 로그인 되었습니다.";

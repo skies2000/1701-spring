@@ -1,11 +1,23 @@
-package aop_log;
+package aop_ano;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.Pointcut;
 
+@Aspect
 public class PrintLog {
+	
+	
+	@Pointcut("execution(public * log(..))")
+	private void publicTarget(){
+		
+	}
+	
+	@Before("publicTarget()")
 	public void checkLog(JoinPoint point)throws Throwable{
 		
 		

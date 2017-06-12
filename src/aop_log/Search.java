@@ -13,4 +13,10 @@ public class Search implements Log{
 		
 	}
 
+	@Override
+	public void log2() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

@@ -9,7 +9,7 @@
 	
 	
 	<bean id="login" class="aop_log.Login">
-	<constructor-arg value="kim"/>
+	
 	</bean>
 	<bean id="logout" class="aop_log.Logout"/>
 	<bean id="search" class="aop_log.Search"/>

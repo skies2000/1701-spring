@@ -1,19 +1,18 @@
-package aop_log;
+package aop_ano;
 
 import org.springframework.context.support.GenericXmlApplicationContext;
 
 public class AopMain {
 	public static void main(String[] args) {
 		System.out.println("start");
-		GenericXmlApplicationContext ctx = new GenericXmlApplicationContext("aop_log/aop.xml");
+		GenericXmlApplicationContext ctx = new GenericXmlApplicationContext("aop_ano/aop.xml");
 		Log login = ctx.getBean("login",Log.class);
 		Log logout = ctx.getBean("logout",Log.class);
 		Log search = ctx.getBean("search",Log.class);
 		
-		System.out.println(login.log("kim"));
 		logout.log();
 		search.log();
-		login.log2();
+		System.out.println(login.log("kim"));
 		
 		
 	}
