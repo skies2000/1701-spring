@@ -15,6 +15,10 @@ public class MainXmlPojo {
 		Calculator recCal = ctx.getBean("recCal",Calculator.class);
 		long fiveFact2 = recCal.factorial(5);
 		System.out.println("recCal.factorial(5)="+fiveFact2);
+		
+		// before advice유형으로
+		Login log = ctx.getBean("login",Login.class);
+		log.loginCheck("kim");
 	} 
 }
  

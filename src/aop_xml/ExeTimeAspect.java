@@ -1,6 +1,5 @@
 package aop_xml;import java.util.Arrays;
 
-import org.aopalliance.intercept.Joinpoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.Signature;
 
@@ -8,7 +7,7 @@ public class ExeTimeAspect {
 	public Object measure(ProceedingJoinPoint joinPoint)throws Throwable{
 		long start = System.nanoTime();
 		try{
-			Object result = joinPoint.proceed();
+			Object result = joinPoint.proceed();//poreceed에 해당하는 메소드를 반환한다.
 			return result;
 		}finally{
 			long finish = System.nanoTime();

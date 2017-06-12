@@ -6,24 +6,28 @@
 	http://www.springframework.org/schema/beans/spring-beans.xsd
 	http://www.springframework.org/schema/aop
 	http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+	<bean id="impeCal" class="aop_xml.ImpeCalculator"/>
+	<bean id="recCal" class="aop_xml.RecCalculator"/>
 	
 	<!--공통 기능을 제공할 클래스를 빈으로 등록  -->
 	<bean id="exeTimeAspect" class="aop_xml.ExeTimeAspect"/>
+	<bean id="bbb" class="aop_xml.BeforeAdvice"/>
+	<bean id="login" class="aop_xml.Login"/>
 	
 	<!--Aspect 설정 : Advice를 어떤 Pointcut에 적용할 지 설정 -->
 	<aop:config>
 		<aop:aspect id="measureAspect" ref="exeTimeAspect">
 			<aop:pointcut id="publicMethod"
-			 	expression="execution(public * aop_xml..*(..))" />
+			 	expression="execution(* factorial(..))"/>
 			<aop:around pointcut-ref="publicMethod" method="measure"/>
 		</aop:aspect>
-	</aop:config>
-	
-	<bean id="impeCal" class="aop_xml.ImpeCalculator">
-	</bean>
-	
-	<bean id="recCal" class="aop_xml.RecCalculator">
-	</bean>
 		
-
+		<aop:aspect ref="bbb">
+			<aop:pointcut id="aaa"
+					 expression="execution(* loginCheck(..))"/>
+			<aop:before method="before"
+				pointcut-ref="aaa"/>
+		</aop:aspect>
+	</aop:config>
 </beans>
