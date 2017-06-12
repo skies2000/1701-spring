@@ -4,6 +4,8 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -12,13 +14,9 @@ import org.aspectj.lang.annotation.Pointcut;
 public class PrintLog {
 	
 	
-	@Pointcut("execution(public * log(..))")
-	private void publicTarget(){
-		
-	}
-	
-	@Before("publicTarget()")
-	public void checkLog(JoinPoint point)throws Throwable{
+	 
+	@Around("execution(* aop_ano.*.*log(..))")
+	public Object checkLog(ProceedingJoinPoint point)throws Throwable{
 		
 		
 		Calendar cal = Calendar.getInstance();
@@ -27,6 +25,9 @@ public class PrintLog {
 		String str = sdf.format(cal.getTime());
 		str +=", 호출된 메소드 : "+className;
 		System.out.println(str);
+		
+		Object result = point.proceed(); 
+		return result;
 		
 	}
 

@@ -13,7 +13,5 @@ public class AopMain {
 		logout.log();
 		search.log();
 		System.out.println(login.log("kim"));
-		
-		
 	}
 }

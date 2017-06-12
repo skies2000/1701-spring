@@ -20,7 +20,6 @@
                <aop:pointcut expression="execution(* log(..))" id="publicMethodAssu"/>           
              <aop:before method="checkLog" pointcut-ref="publicMethodAssu"/>
          </aop:aspect>
-      
       </aop:config>
       
       <!--
