@@ -1,0 +1,26 @@
+2017년 06월 13일 화요일 09:31:00, 호출된 메소드 : insert2017년 06월 13일 화요일 09:31:00, 호출된 메소드 : update2017년 06월 13일 화요일 09:31:00, 호출된 메소드 : delete2017년 06월 13일 화요일 09:31:00, 호출된 메소드 : view2017년 06월 13일 화요일 09:31:00, 호출된 메소드 : select2017년 06월 13일 화요일 09:44:36, 호출된 메소드 : insert
+ 호출된 클래스 : db.MemberDao
+ sql : insert into member values()2017년 06월 13일 화요일 09:44:36, 호출된 메소드 : update
+ 호출된 클래스 : db.MemberDao
+ sql : update member set2017년 06월 13일 화요일 09:44:36, 호출된 메소드 : delete
+ 호출된 클래스 : db.MemberDao
+ sql : delete member where2017년 06월 13일 화요일 09:44:36, 호출된 메소드 : view
+ 호출된 클래스 : db.MemberDao
+ sql : select from member where serial = ?2017년 06월 13일 화요일 09:44:36, 호출된 메소드 : select
+ 호출된 클래스 : db.MemberDao
+ sql : select * from member2017년 06월 13일 화요일 09:45:30
+호출된 메소드 : insert
+호출된 클래스 : db.MemberDao
+sql : insert into member values()2017년 06월 13일 화요일 09:45:30
+호출된 메소드 : update
+호출된 클래스 : db.MemberDao
+sql : update member set2017년 06월 13일 화요일 09:45:30
+호출된 메소드 : delete
+호출된 클래스 : db.MemberDao
+sql : delete member where2017년 06월 13일 화요일 09:45:30
+호출된 메소드 : view
+호출된 클래스 : db.MemberDao
+sql : select from member where serial = ?2017년 06월 13일 화요일 09:45:30
+호출된 메소드 : select
+호출된 클래스 : db.MemberDao
+sql : select * from member

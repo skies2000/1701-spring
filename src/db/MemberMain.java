@@ -1,5 +1,7 @@
 package db;
 
+import java.util.List;
+
 import org.springframework.context.support.GenericXmlApplicationContext;
 
 public class MemberMain {
@@ -9,12 +11,18 @@ public class MemberMain {
 		
 		MemberVo vo = ctx.getBean("vo",MemberVo.class);
 		MemberDao dao = ctx.getBean("dao",MemberDao.class);
-		
+		List<MemberVo> list = null;
 		dao.insert(vo);
 		dao.update(vo);
 		dao.delete(vo);
-		dao.view(vo);
-		dao.select(vo);
+		dao.view(vo); 
+		list = dao.select(vo);
+		System.out.println("-----------리스트--------");
+		for(int i=0; i<list.size();i++){
+			System.out.println(list.get(i).getName());
+		}
+		
+		
 		
 	}
 }
