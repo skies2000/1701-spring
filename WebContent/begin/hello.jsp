@@ -8,6 +8,5 @@
 </head>
 <body>
 인사말 : ${greeting}
-
 </body>
-</html> 
+</html>  
