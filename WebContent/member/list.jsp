@@ -68,7 +68,7 @@ color: blue;
 </style>
 </head>
 <body>
-   <h2>유저정보</h2>
+   <h2><spring:message code="list.title"></spring:message></h2>
    <br/><br/>
    <form name='frm' method='post' action='list.do'>
       <!-- input.do = spring mvc가 처리해 달라 -->
