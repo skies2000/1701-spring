@@ -14,7 +14,7 @@
 function init(){
 	var btn = document.getElementById('btninput');
 	btn.onclick = function(){
-		location.href = 'input.jsp';
+		location.href = 'inputView.do';
 	}
 
 

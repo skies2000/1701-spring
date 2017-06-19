@@ -62,6 +62,12 @@ public class MemberController {
 	      
 	      return mv; 
 	   }
+	@RequestMapping(value="member/inputView.do",method={RequestMethod.POST,RequestMethod.GET})
+	   public String inputView(MemberVo vo){ //userid만 들어옴(setter 실행.)
+		
+		return "input";
+	}
+	
 	
 	@RequestMapping(value="member/modify.do",method={RequestMethod.POST,RequestMethod.GET})
 	   public Object modify(MemberVo vo){ //userid만 들어옴(setter 실행.)
@@ -77,13 +83,12 @@ public class MemberController {
 		ModelAndView mv = new ModelAndView();
 		int r = dao.delete(vo);
 		String msg = "";
-		mv.setViewName("delete"); //msg 값이 input_result로 값이 넘어감
 		if(r>0){
 			msg = "삭제 완료";
 		}else
 			msg = "삭제중 오류 발생";
 		mv.addObject("msg",msg);
-		
+		mv.setViewName("delete"); //msg 값이 input_result로 값이 넘어감
 		
 		return mv;
 	}
