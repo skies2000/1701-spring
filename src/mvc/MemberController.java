@@ -3,6 +3,8 @@ package mvc;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -125,8 +127,27 @@ public class MemberController {
 		
 		mv.addObject("msg",msg);
 		mv.setViewName("modify_result");
+		
+	
 		return mv;
 	}
 	
-	
+	//login
+	@RequestMapping(value="member/login.do",method={RequestMethod.POST,RequestMethod.GET})
+	public Object login(MemberVo vo){
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("login");//로그인 폼만 푸른다.jsp를 다이렉트로 부르지 않고..
+		return mv;
+	}
+	@RequestMapping(value="member/loginR.do",method={RequestMethod.POST,RequestMethod.GET})
+	public Object loginR(MemberVo vo, Errors error, HttpSession session){
+		ModelAndView mv = new ModelAndView();
+		
+		mv.addObject("userid","아이디를 입력해주세요.");//에러가 생기면..에러필드값,에러코드값
+		mv.addObject("userpwd","암호도 빠짐");
+		
+		mv.setViewName("login_result");
+		return mv;
+	}
+
 }
