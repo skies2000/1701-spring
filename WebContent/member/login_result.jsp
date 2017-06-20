@@ -10,6 +10,8 @@
 <h2>로그인 결과</h2>
 <li>user id = ${userid}
 <li>user pwd = ${userpwd}
+<%out.print("세션에 등록된 아이디 : "+session.getAttribute("sessionId"));
+%>
 
 </body>
 </html>

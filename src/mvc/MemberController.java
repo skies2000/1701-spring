@@ -143,11 +143,21 @@ public class MemberController {
 	public Object loginR(MemberVo vo, Errors error, HttpSession session){
 		ModelAndView mv = new ModelAndView();
 		
-		mv.addObject("userid","아이디를 입력해주세요.");//에러가 생기면..에러필드값,에러코드값
-		mv.addObject("userpwd","암호도 빠짐");
+		new LoginValidator(dao).validate(vo, error);
 		
-		mv.setViewName("login_result");
+		if(error.getErrorCount()>0){
+			
+			List<ObjectError>list = error.getAllErrors();
+			for(ObjectError oe : list){
+				FieldError fe = (FieldError)oe;
+				mv.addObject(fe.getField(),fe.getCode());//에러가 생기면..에러필드값,에러코드값
+			}
+			mv.setViewName("login");
+		}else{
+			session.invalidate();
+			session.setAttribute("sessionId", vo.getUserid());
+			mv.setViewName("login_result");
+		}
 		return mv;
 	}
-
 }

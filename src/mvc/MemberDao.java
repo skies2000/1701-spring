@@ -12,6 +12,30 @@ public class MemberDao {
 	public MemberDao(DBConnect db){
 		this.conn = db.getConn();
 	}
+	@SuppressWarnings("finally")
+	public boolean login(MemberVo vo){
+		boolean b = true;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		
+		try{
+			String sql = "select from member where userid=? and userpwd=?";
+			ps = conn.prepareStatement(sql);
+			
+			ps.setString(1, vo.getUserid());
+			ps.setString(2, vo.getUserpwd());
+			
+			rs = ps.executeQuery();
+			if(!rs.next()){ //아이디랑 패스워드에 헤당하는 멤버가  !표니깐 존재하지 않는다면..
+				b=false;
+			}
+		}catch (Exception e) {
+			b = false;
+			e.printStackTrace();
+		}finally{
+			return b;
+		}
+	}
 	
 	public MemberVo view(MemberVo vo) {
 		MemberVo v = new MemberVo();

@@ -7,8 +7,15 @@ public class MemberVo {
 	String modifyId="";
 	String email="";
 	String confirmpwd="";
+	String msg="";
 	
 	
+	public String getMsg() {
+		return msg;
+	}
+	public void setMsg(String msg) {
+		this.msg = msg;
+	}
 	public String getEmail() {
 		return email;
 	}

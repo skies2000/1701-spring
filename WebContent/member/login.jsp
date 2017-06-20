@@ -16,6 +16,9 @@
 <label>회원 암호</label>
 <input type='password' name='userpwd'>
 <span class='error'>${userpwd}</span><!--usepwd는 필드명이 아니라 에러 코드에 키값에 해당한다.  --><p/>
+<p/>
+<span><strong>${msg}</strong></span>
+<p/>
 <input type='submit' value='로그인'/>&nbsp;&nbsp;&nbsp;<input type='button' value='취소' id='btnlist'>
 </form>
 </body>
