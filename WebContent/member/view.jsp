@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h2><spring:message code="view.title2"/></h2>
+<h2><spring:message code="view.title2" arguments="12345"/></h2>
 <ul>
 	<li><spring:message code="view.userID"/> : ${memberVo.userid }</li>
 	<li><spring:message code="view.userPwd" />: ${memberVo.userpwd }</li>

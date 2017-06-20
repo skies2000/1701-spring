@@ -5,8 +5,16 @@ public class MemberVo {
 	String userid="";
 	String userpwd="";
 	String modifyId="";
-	 
+	String email="";
+	String confirmpwd="";
 	
+	
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 	public String getUserid() {
 		return userid;
 	}
@@ -25,5 +33,20 @@ public class MemberVo {
 	public void setModifyId(String modifyId) {
 		this.modifyId = modifyId;
 	}
+	public String getConfirmpwd() {
+		return confirmpwd;
+	}
+	public void setConfirmpwd(String confirmpwd) {
+		this.confirmpwd = confirmpwd;
+	}
+	
+	public boolean isPwdEqual(){
+		if(this.userpwd.equals("") || this.confirmpwd.equals(""))
+			return false;
+		else if(this.userpwd.equals(this.confirmpwd))
+			return true;
+		return false;
+	}
+	
 	
 }

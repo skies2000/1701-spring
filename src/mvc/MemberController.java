@@ -5,6 +5,9 @@ import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
+import org.springframework.validation.FieldError;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -35,19 +38,34 @@ public class MemberController {
 	@RequestMapping(value="member/input.do", method={RequestMethod.POST,RequestMethod.GET})
 	//input 매개변수에 들어오는 값은 input.jsp의 userid와 userpwd가 들어옴
 	//  input.jsp의 name값은(userid,userpwd) MemberVo의 변수명과 같아야 함.
-	public Object input(MemberVo vo){//반환 타입은 Object형으로
+	public Object input(MemberVo vo, Errors errors){//반환 타입은 Object형으로
 		
 //		return mv; 가 원형이고 메소드 반환유형은 Object type..(ModelAndView로 해도되는데 걍 object로함)*/
 		ModelAndView mv = new ModelAndView();
-		int r = dao.input(vo);
+		new MemberValidator().validate(vo, errors);
+		
 		
 		String msg = ""	;
-		if(r>0) msg = "회원가입을 축하합니다~^^.";
-		else msg = "회원가입 중 오류 발생..다시시도해주세요.";
 		
-		mv.addObject("msg",msg); //map구조 key값, value 값
-		mv.setViewName("input_result"); //msg 값이 input_result로 값이 넘어감
 		
+		if(errors.getErrorCount()>0){
+			List<ObjectError> list = errors.getAllErrors();
+			for(ObjectError oe : list){
+				FieldError fe = (FieldError) oe;
+				mv.addObject(fe.getField(),fe.getCode());
+				mv.setViewName("input");
+				
+			}
+			
+		}else{
+			int r = dao.input(vo);
+			if(r>0) msg = "회원가입을 축하합니다~^^.";
+			else msg = "회원가입 중 오류 발생..다시시도해주세요.";
+			mv.addObject("vo",vo);
+			mv.addObject("msg",msg); //map구조 key값, value 값
+			mv.setViewName("input_result"); //msg 값이 input_result로 값이 넘어감
+			
+		}
 		
 		return mv;
 	}
@@ -63,7 +81,8 @@ public class MemberController {
 	      return mv; 
 	   }
 	@RequestMapping(value="member/inputView.do",method={RequestMethod.POST,RequestMethod.GET})
-	   public String inputView(MemberVo vo){ //userid만 들어옴(setter 실행.)
+	   public String inputView(MemberVo vo,Errors errors){ //userid만 들어옴(setter 실행.)
+		new MemberValidator().validate(vo, errors);
 		
 		return "input";
 	}

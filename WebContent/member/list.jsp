@@ -73,7 +73,7 @@ color: blue;
    <form name='frm' method='post' action='list.do'>
       <!-- input.do = spring mvc가 처리해 달라 -->
       <input type="button" id='btninput' value='회원신규등록'><p/>
-      <input type='text' name="useridd" /> <input type='submit' value='검색' />
+      <input type='text' name="userid" /> <input type='submit' value='검색' />
   </form>
 
 	<%-- <c:forEach var="item" items="${list}"><!--${list}는 리퀘스트 영역에 들어있는 list임  -->
