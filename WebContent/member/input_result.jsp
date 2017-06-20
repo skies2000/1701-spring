@@ -19,29 +19,9 @@ function init(){
 <body>
 <h2><spring:message code="inputResult.title"/></h2>
 ${msg }<br/><br/>
-<form:form action="list.do" commandName="MemberVo">
- <p>
- <label>이메일 : </label>
- <form:input path="email"/>
- <form:errors path="email"/>
- </p>
- <p>
- <label>userID : </label>
- <form:input path="userid"/>
- <form:errors path="userid"/>
- </p>
- <p><label>비밀번호 : </label>
- <form:input path="userpwd"/>
- <form:errors path="userpwd"/>
- </p>
- <p><label>비밀번호 확인 : </label>
- <form:input path="confirmpwd"/>
- <form:errors path="confirmpwd"/>
- </p>
+
  
- 
-<input type='submit' value='목록으로'/> 
- </form:form>
+<input type='button' id=btnlist value='목록으로'/> 
 
 
 <script>init()</script>

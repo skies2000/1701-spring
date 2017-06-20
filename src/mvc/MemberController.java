@@ -61,7 +61,6 @@ public class MemberController {
 			int r = dao.input(vo);
 			if(r>0) msg = "회원가입을 축하합니다~^^.";
 			else msg = "회원가입 중 오류 발생..다시시도해주세요.";
-			mv.addObject("vo",vo);
 			mv.addObject("msg",msg); //map구조 key값, value 값
 			mv.setViewName("input_result"); //msg 값이 input_result로 값이 넘어감
 			
